@@ -2,6 +2,7 @@
 #include "global_no_headers.h"
 
 // TO DO: mouse hover selection
+// and game scrolling
 
 void drawAppsOrGames() {
     int paddingX = GAMES_STARTING_POINT;
@@ -15,10 +16,10 @@ void drawAppsOrGames() {
         gamesOrApps = apps;
     }
 
-    for (const auto& substance : gamesOrApps) {
-        DrawTexture(substance.texture, paddingX, paddingY, WHITE);
+    for (const auto& asset : gamesOrApps) {
+        DrawTexture(asset.texture, paddingX, paddingY, WHITE);
 
-        if(optionSelected == substance.id) {
+        if(optionSelected == asset.id) {
             DrawRectangleLinesEx(quickRect(
                 quickVec(paddingX, paddingY),
                 quickVec(GAME_WIDTH, GAME_HEIGHT)
@@ -53,7 +54,7 @@ void drawAppsOrGames() {
                 DrawTextEx(fonts[1], "Play", quickVec(WINDOW_WIDTH / 2 - 100+(BUTTON_WIDTH/2), 650+(BUTTON_HEIGHT/2)), 15, 1, BLACK);
                 DrawTextEx(fonts[1], "Exit", quickVec(WINDOW_WIDTH / 2 + 100+(BUTTON_WIDTH/2), 650+(BUTTON_HEIGHT/2)), 15, 1, BLACK);
             } else {
-                DrawTextEx(fonts[1], substance.description.c_str(), quickVec(0, 610), 20, 1, BLACK);
+                DrawTextEx(fonts[1], asset.description.c_str(), quickVec(0, 610), 20, 1, WHITE);
             }
         }
 
